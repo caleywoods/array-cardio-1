@@ -67,10 +67,26 @@
       return `${inventor.first} ${inventor.last}`; //thank you ES6 string interpolation
     });
 
-    console.dir( names );
+    // console.dir( names );
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+    const comperator = (a,b) => {
+      console.log(b.count);
+      if ( a.year > b.year ) {
+        return 1;
+      }
+
+      if ( a.year < b.year ) {
+        return -1;
+      }
+
+      return 0;
+    };
+
+    // This works but I don't really understand it that well
+    console.dir( inventors.sort(comperator));
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
