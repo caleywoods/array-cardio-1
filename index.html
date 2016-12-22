@@ -35,17 +35,27 @@
     // Use map to find all inventors born between 1500 and 1599
     // map alone will return a 12 element array with 10 null values
     // use filter to cut out the null values
-    const oldInventors = inventors.map( inventor => {
-      if ( inventor.year > 1499 && inventor.year < 1601 ) {
-        return inventor;
-      } else {
-        return null;
+    // const oldInventors = inventors.map( inventor => {   // Wes just uses filter here apparently - OOPS.
+    //   if ( inventor.year > 1499 && inventor.year < 1600 ) {
+    //     return inventor;
+    //   } else {
+    //     return null;
+    //   }
+    // }).filter( inventor => {
+    //   if ( inventor !== null ) return inventor;
+    // });
+
+    const oldInventors = inventors.filter( inventor => {
+      // Isn't there a cleaner way to do this piece?!
+      if ( inventor.year > 1499 && inventor.year < 1600 ) {
+        return true;
       }
-    }).filter( inventor => {
-      if ( inventor !== null ) return inventor;
     });
 
     console.dir( oldInventors );
+    
+
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
 
