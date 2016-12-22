@@ -45,11 +45,15 @@
     //   if ( inventor !== null ) return inventor;
     // });
 
-    const oldInventors = inventors.filter( inventor => {
-      // Isn't there a cleaner way to do this piece?!
+    const bornInFifteenHundreds = inventor => {
       if ( inventor.year > 1499 && inventor.year < 1600 ) {
         return true;
       }
+    };
+
+    // I know you can just call inventors.filter( bornInFifteenHundreds ); but I like how this reads
+    const oldInventors = inventors.filter( inventor => {
+      if ( bornInFifteenHundreds(inventor) ) return inventor;
     });
 
     console.dir( oldInventors );
